@@ -161,6 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 78055893}
+  - component: {fileID: 78055894}
   m_Layer: 0
   m_Name: DeuxColonnes (1)
   m_TagString: Untagged
@@ -185,6 +186,22 @@ Transform:
   - {fileID: 1702333485}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &78055894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 78055892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3557169c8173f344eadbf0f4e65db24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: -0.01
+  positionFin: -10
+  positionDebut: 10
+  deplacementAleatoire: 2.5
 --- !u!1 &282886202
 GameObject:
   m_ObjectHideFlags: 0
@@ -509,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 836352170}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.15, y: 2.12, z: 0}
+  m_LocalPosition: {x: 12, y: 2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -581,10 +598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3557169c8173f344eadbf0f4e65db24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vitesse: 0.03
-  positionFin: 0
-  positionDebut: 0
-  deplacementAleatoire: 0
+  vitesse: -0.005
+  positionFin: -12
+  positionDebut: 12
+  deplacementAleatoire: 3.5
 --- !u!1 &961291059
 GameObject:
   m_ObjectHideFlags: 0
@@ -595,6 +612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 961291060}
   - component: {fileID: 961291061}
+  - component: {fileID: 961291062}
   m_Layer: 0
   m_Name: Ciel
   m_TagString: Untagged
@@ -671,6 +689,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &961291062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 961291059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3557169c8173f344eadbf0f4e65db24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: -0.002
+  positionFin: -20.4
+  positionDebut: 20.4
+  deplacementAleatoire: 0
 --- !u!1 &1042902758
 GameObject:
   m_ObjectHideFlags: 0
@@ -853,6 +887,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1085320804}
   - component: {fileID: 1085320805}
+  - component: {fileID: 1085320806}
   m_Layer: 0
   m_Name: Ciel (1)
   m_TagString: Untagged
@@ -929,6 +964,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1085320806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085320803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3557169c8173f344eadbf0f4e65db24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: -0.002
+  positionFin: -20.4
+  positionDebut: 20.4
+  deplacementAleatoire: 0
 --- !u!1 &1565452567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,6 +1075,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1578624201}
+  - component: {fileID: 1578624202}
   m_Layer: 0
   m_Name: DeuxColonnes (2)
   m_TagString: Untagged
@@ -1048,6 +1100,22 @@ Transform:
   - {fileID: 1042902759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1578624202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578624200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3557169c8173f344eadbf0f4e65db24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: -0.01
+  positionFin: -10
+  positionDebut: 10
+  deplacementAleatoire: 2.5
 --- !u!1 &1702333484
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1211,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017029212}
+  - component: {fileID: 2017029213}
   m_Layer: 0
   m_Name: DeuxColonnes
   m_TagString: Untagged
@@ -1167,6 +1236,22 @@ Transform:
   - {fileID: 802932843}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2017029213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017029211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3557169c8173f344eadbf0f4e65db24c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitesse: -0.01
+  positionFin: -10
+  positionDebut: 10
+  deplacementAleatoire: 2.5
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
