@@ -7,28 +7,38 @@ public class ControleFlappy : MonoBehaviour
     public float vitesseHorizontale;
     public float vitesseVerticale;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+ 
+   
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))  
+        if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
         {
-            transform­.Translate(vitesseHorizontale, 0f, 0f);
+            vitesseHorizontale = 3;
+        }
+        else
+        {
+            vitesseHorizontale = GetComponent<Rigidbody2D>().velocity.x; //vitesse horizontale actuelle
         }
 
         if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
         {
-            transform­.Translate(-vitesseHorizontale, 0f, 0f);
+            vitesseHorizontale = -3;
+        }
+        else
+        {
+            vitesseHorizontale = GetComponent<Rigidbody2D>().velocity.x; //vitesse horizontale actuelle
         }
 
         if (Input.GetKeyDown(KeyCode.W) || (Input.GetKeyDown(KeyCode.UpArrow)))
         {
-            transform­.Translate(0f, vitesseVerticale, 0f);
+            vitesseVerticale = 5;
         }
+        else
+        {
+            vitesseVerticale = GetComponent<Rigidbody2D>().velocity.y; //vitesse horizontale actuelle
+        }
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(vitesseHorizontale, vitesseVerticale);
     }
 }
