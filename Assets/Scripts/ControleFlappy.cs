@@ -12,18 +12,13 @@ public class ControleFlappy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow)))
+        if (Input.GetKey(KeyCode.D) || (Input.GetKey(KeyCode.RightArrow))) //Deplacement vers la droite
         {
-            vitesseHorizontale = 3;
+            vitesseHorizontale = 2;
         }
-        else
+        else if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow))) //Deplacement vers la gauche 
         {
-            vitesseHorizontale = GetComponent<Rigidbody2D>().velocity.x; //vitesse horizontale actuelle
-        }
-
-        if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow)))
-        {
-            vitesseHorizontale = -3;
+            vitesseHorizontale = -2;
         }
         else
         {
