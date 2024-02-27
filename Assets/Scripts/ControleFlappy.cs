@@ -7,7 +7,8 @@ public class ControleFlappy : MonoBehaviour
     public float vitesseHorizontale;
     public float vitesseVerticale;
 
- 
+    public Sprite flappyBlesse;
+    public GameObject objetPiece;
    
     // Update is called once per frame
     void Update()
@@ -18,7 +19,7 @@ public class ControleFlappy : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.LeftArrow))) //Deplacement vers la gauche 
         {
-            vitesseHorizontale = -2;
+            vitesseHorizontale = -3;
         }
         else
         {
@@ -35,5 +36,27 @@ public class ControleFlappy : MonoBehaviour
         }
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(vitesseHorizontale, vitesseVerticale);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        print(collision.gameObject.name);
+
+        //Collision flappy et colonne
+        if (collision.gameObject.name == "Colonne")
+        {
+            GetComponent<SpriteRenderer>().sprite = flappyBlesse;
+        }
+
+        if(collision.gameObject.name == "PieceOr")
+        {
+            collision.gameObject.SetActive(false);
+            Invoke("ActivePiece", 4f);
+        }
+    }
+
+    void ActivePiece()
+    {
+        objetPiece.SetActive(true);
     }
 }
