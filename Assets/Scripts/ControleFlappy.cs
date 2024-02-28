@@ -7,8 +7,13 @@ public class ControleFlappy : MonoBehaviour
     public float vitesseHorizontale;
     public float vitesseVerticale;
 
+    //Sprite
     public Sprite flappyBlesse;
+    public Sprite flappyNormale;
+    //Game Object
     public GameObject objetPiece;
+    public GameObject objetPackVie;
+    public GameObject objetChampingon;
    
     // Update is called once per frame
     void Update()
@@ -48,15 +53,46 @@ public class ControleFlappy : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = flappyBlesse;
         }
 
-        if(collision.gameObject.name == "PieceOr")
+        //Collision flappy piece
+        else if(collision.gameObject.name == "PieceOr")
         {
             collision.gameObject.SetActive(false);
             Invoke("ActivePiece", 4f);
         }
+
+        //Collision flappy packVie
+        else if(collision.gameObject.name == "PackVie")
+        {
+            collision.gameObject.SetActive(false);
+            Invoke("ActivePackVie", 4f);
+            GetComponent<SpriteRenderer>().sprite = flappyNormale;
+        }
+
+        //Collision flappy champigon
+        else if(collision.gameObject.name == "Champingon")
+        {
+            collision.gameObject.SetActive(false);
+            Invoke("ActiveChampingon", 4f);
+            transform.localScale *= 1.5f;
+        }
     }
 
+    //Fonction pour reactiver la piece
     void ActivePiece()
     {
         objetPiece.SetActive(true);
+    }
+
+    //Fonction pour reactiver le pack de vie
+    void ActivePackVie()
+    {
+        objetPackVie.SetActive(true);
+    }
+
+    //fonction pour reactiver le champigon
+    void ActiveChampingon()
+    {
+        objetChampingon.SetActive(true);
+        transform.localScale /= 1.5f;
     }
 }
