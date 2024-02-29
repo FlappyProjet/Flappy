@@ -57,14 +57,14 @@ public class ControleFlappy : MonoBehaviour
         else if(collision.gameObject.name == "PieceOr")
         {
             collision.gameObject.SetActive(false);
-            Invoke("ActivePiece", 4f);
+            Invoke("ActivePiece", 3f);
         }
 
         //Collision flappy packVie
         else if(collision.gameObject.name == "PackVie")
         {
             collision.gameObject.SetActive(false);
-            Invoke("ActivePackVie", 4f);
+            Invoke("ActivePackVie", 3f);
             GetComponent<SpriteRenderer>().sprite = flappyNormale;
         }
 
@@ -72,7 +72,7 @@ public class ControleFlappy : MonoBehaviour
         else if(collision.gameObject.name == "Champingon")
         {
             collision.gameObject.SetActive(false);
-            Invoke("ActiveChampingon", 4f);
+            Invoke("ActiveChampingon", 3f);
             transform.localScale *= 1.5f;
         }
     }
@@ -81,6 +81,8 @@ public class ControleFlappy : MonoBehaviour
     void ActivePiece()
     {
         objetPiece.SetActive(true);
+        float deplacementAleatoire = Random.Range(-1, 1);
+        objetPiece.transform.position = new Vector2(objetPiece.transform.position.x, deplacementAleatoire);	// deplacement aleatoire verticale piece
     }
 
     //Fonction pour reactiver le pack de vie
