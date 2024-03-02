@@ -14,7 +14,12 @@ public class ControleFlappy : MonoBehaviour
     public GameObject objetPiece;
     public GameObject objetPackVie;
     public GameObject objetChampingon;
-   
+    //Audio
+    public AudioClip sonCollision;
+    public AudioClip sonPiece;
+    public AudioClip sonPackVie;
+    public AudioClip sonChampigon;
+
     // Update is called once per frame
     void Update()
     {
@@ -43,6 +48,7 @@ public class ControleFlappy : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(vitesseHorizontale, vitesseVerticale);
     }
 
+    //Collisions
     void OnCollisionEnter2D(Collision2D collision)
     {
         print(collision.gameObject.name);
@@ -51,6 +57,7 @@ public class ControleFlappy : MonoBehaviour
         if (collision.gameObject.name == "Colonne")
         {
             GetComponent<SpriteRenderer>().sprite = flappyBlesse;
+            GetComponent<AudioSource>().PlayOneShot(sonCollision, 1f);
         }
 
         //Collision flappy piece
@@ -77,6 +84,8 @@ public class ControleFlappy : MonoBehaviour
         }
     }
 
+
+    // - - - FONCTIONS - - - //
     //Fonction pour reactiver la piece
     void ActivePiece()
     {
