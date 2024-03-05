@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -31,10 +32,27 @@ public class ControleFlappy : MonoBehaviour
     public bool flappyTouchee = false;
     public bool partieTerminee = false;
 
+    //Texte
+    public TextMeshProUGUI pointage;
+    public TextMeshProUGUI messageFin;
+
+    public int score;
+
+    void Start()
+    {
+        //score a 0
+        score = 0;
+        //message fin disparait
+        messageFin.enabled = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
+
+        //Affichage du pointage
+        pointage.text = "pointage:" + score;
+
         if (partieTerminee == false)
         {
             //touche D
@@ -93,8 +111,8 @@ public class ControleFlappy : MonoBehaviour
     {
         print(collision.gameObject.name);
 
-        //Collision flappy et colonne
-        if (collision.gameObject.name == "Colonne")
+        //Collision flappy colonne ou limite
+        if ((collision.gameObject.name == "Colonne") || (collision.gameObject.name == "Decor"))
         {
             GetComponent<AudioSource>().PlayOneShot(sonCollision, 1f);
             //
@@ -114,9 +132,13 @@ public class ControleFlappy : MonoBehaviour
                 GetComponent<Rigidbody2D>().angularVelocity = 100;
                 //Son finPartie
                 GetComponent<AudioSource>().PlayOneShot(sonFinPartie, 1f);
+                //message fin partie apparait
+                messageFin.enabled = true;
                 //Relancement
                 Invoke("RelancerPartie", 3f);
             }
+            //score -5
+            score -= 5;
         }
 
         //Collision flappy piece
@@ -125,6 +147,8 @@ public class ControleFlappy : MonoBehaviour
             collision.gameObject.SetActive(false);
             Invoke("ActivePiece", 3f);
             GetComponent<AudioSource>().PlayOneShot(sonPiece, 1f);
+            //score +5
+            score += 5;
         }
 
         //Collision flappy packVie
@@ -135,6 +159,8 @@ public class ControleFlappy : MonoBehaviour
             Invoke("ActivePackVie", 3f);
             GetComponent<SpriteRenderer>().sprite = flappyNormaleBas;
             GetComponent<AudioSource>().PlayOneShot(sonPackVie, 1f);
+            //score +5
+            score += 5;
         }
 
         //Collision flappy champingon
@@ -144,6 +170,8 @@ public class ControleFlappy : MonoBehaviour
             Invoke("ActiveChampingon", 3f);
             transform.localScale *= 1.5f;
             GetComponent<AudioSource>().PlayOneShot(sonChampingon, 1f);
+            //score +10
+            score += 10;
         }
     }
 
