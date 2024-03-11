@@ -20,6 +20,7 @@ public class ControleFlappy : MonoBehaviour
     public GameObject objetPiece;
     public GameObject objetPackVie;
     public GameObject objetChampingon;
+    public GameObject objetGrille;
     
     //Audio
     public AudioClip sonCollision;
@@ -149,6 +150,9 @@ public class ControleFlappy : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(sonPiece, 1f);
             //score +5
             score += 5;
+            //Animation grille
+            objetGrille.GetComponent<Animator>().enabled = true; //Activer
+            Invoke("DesactiverAnim", 4f);
         }
 
         //Collision flappy packVie
@@ -206,5 +210,11 @@ public class ControleFlappy : MonoBehaviour
     void RelancerPartie()
     {
         SceneManager.LoadScene(0);
+    }
+
+    //Fonction pour desctiver an8imation grille après 4 seconde
+    void DesactiverAnim()
+    {
+        objetGrille.GetComponent<Animator>().enabled = false; //Deactiver
     }
 }
